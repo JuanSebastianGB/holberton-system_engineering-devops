@@ -1,2 +1,2 @@
 #!/bin/bash
-lsblk -al
+ls -al ./ ../ /boot
