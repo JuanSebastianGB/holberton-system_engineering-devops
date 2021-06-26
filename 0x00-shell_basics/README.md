@@ -2,7 +2,7 @@
 
 ## Learning Objectives
 
-```shell
+|
 ### General
 
 What does RTFM mean?
@@ -64,4 +64,5 @@ Common shortcuts for Bash
 # LTS
 
 What does LTS mean?
-```
+|
+|-----------|
