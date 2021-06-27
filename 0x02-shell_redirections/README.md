@@ -74,7 +74,7 @@
 - One file name per line
 - The listing should end with a new line
 - You are not allowed to use basename, grep, egrep, fgrep or rgrep 
-24.[A gif is worth ten thousand words](101-gifs) - Write a script that lists all the files with a .gif extension in the current directory and all its sub-directories.
+24. [A gif is worth ten thousand words](101-gifs) - Write a script that lists all the files with a .gif extension in the current directory and all its sub-directories.
 - Hidden files should be listed
 - Only regular files (not directories) should be listed
 - The names of the files should be displayed without their extensions
