@@ -25,7 +25,7 @@
 - Allowed editors: vi, vim, emacs
 - All your scripts will be tested on Ubuntu 20.04 LTS
 - All your scripts should be exactly two lines long ($ wc -l file should print 2)
-- All your files should end with a new line (why?)
+- All your files should end with a new line ([why?](https://unix.stackexchange.com/questions/18743/whats-the-point-in-adding-a-new-line-to-the-end-of-a-file/18789))
 - The first line of all your files should be exactly #!/bin/bash
 - A README.md file, at the root of the folder of the project, describing what each script is doing
 - You are not allowed to use backticks, &&, || or ;
@@ -47,8 +47,18 @@ Owner: no permission at all
 Group: no permission at all
 Other users: all the permissions
 ```
-
-
+9. [John Doe](9-John_Doe) - Write a script that sets the mode of the file hello to this:
+```shell
+-rwxr-x-wx 1 julien julien 23 Sep 20 14:25 hello
+```
+10. [Look in the mirror](10-mirror_permissions) - Write a script that sets the mode of the file hello the same as olleh’s mode.
+11. [Directories](11-directories_permissions) - Create a script that adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users. Regular files should not be changed.
+12. [More directories](12-directory_permissions) - Create a script that creates a directory called dir_holberton with permissions 751 in the working directory.
+13. [Change group](13-change_group) - Write a script that changes the group owner to holberton for the file hello
+14. [Owner and group](100-change_owner_and_group) - Write a script that changes the owner to betty and the group owner to holberton for all the files and directories in the working directory.
+15. [Symbolic links](101-symbolic_link_permissions) - Write a script that changes the owner and the group owner of _hello to betty and holberton respectively.
+16. [If only](102-if_only) - Write a script that changes the owner of the file hello to betty only if it is owned by the user guillaume.
+17. [Star Wars](103-Star_Wars) - Write a script that will play the StarWars IV episode in the terminal.
 
 
 
