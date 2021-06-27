@@ -46,7 +46,7 @@
 7. [It is a good file that cuts iron without making a noise](7-file) - Write a shell script that creates a file named exactly \*\\'"Holberton School"\'\\*$\?\*\*\*\*\*:) containing the text Holberton School ending by a new line.
 8. [Save current state of directory](8-cwd_state) - Write a script that writes into the file ls_cwd_content the result of the command ls -la. If the file ls_cwd_content already exists, it should be overwritten. If the file ls_cwd_content does not exist, create it.
 9. [Duplicate last line](9-duplicate_last_line) - Write a script that duplicates the last line of the file iacta
-10. [No more javascript](10-no_more_js) - Write a script that deletes all the regular files (not the directories) with a .js extension that are present in the current directory and all its subfolders.
+10. [No more javascript](10-no_more_js) - Write a script that deletes all the regular files (not the directories) with a .js extension that are present in the current directory and all its subfolders ([starting to use find](https://www.geeksforgeeks.org/find-command-in-linux-with-examples/)).
 11. [Don't just count your directories, make your directories count](11-directories) - Write a script that counts the number of directories and sub-directories in the current directory.)
  - The current and parent directories should not be taken into account
  - Hidden directories should be counted 
@@ -95,11 +95,3 @@
 
 1. [Shell, I/O Redirection](http://linuxcommand.org/lc3_lts0070.php)
 2. [Special Characters](http://mywiki.wooledge.org/BashGuide/SpecialCharacters)
-
-
-
-
- 
-
-
-
