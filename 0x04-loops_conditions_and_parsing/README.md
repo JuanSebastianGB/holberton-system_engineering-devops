@@ -4,11 +4,12 @@
 
 Unless stated, all your projects will be auto-corrected with Ubuntu 20.04 LTS.
 
-## Background Context
+## Resources
 
-[![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2019/6/b07e3333b1edfb9beed5.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20211028%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211028T174404Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=ef2597bbacafe7940d36b961da2d27f09b762c5a207b03236f3d222c9cc07d6f)](https://youtu.be/BC2neyc5GcI)
-
-
+-   [Variable assignment and arithmetic](https://intranet.hbtn.io/rltoken/IM0Gv6VPzwAmqzlJxETZkw "Variable assignment and arithmetic")
+-   [Comparison operators](https://intranet.hbtn.io/rltoken/K3E6xI9-goDM-93vsjCpPA "Comparison operators")
+-   [File test operators](https://intranet.hbtn.io/rltoken/0OZLLDT28KrRZdid-l6hwg "File test operators")
+-   [Make your scripts portable](https://intranet.hbtn.io/rltoken/Dyrnap2UC-LrzrmCOJRx8A "Make your scripts portable")
 ## Learning Objectives
 
 At the end of this project, you are expected to be able to  [explain to anyone](https://intranet.hbtn.io/rltoken/GXTAfCK7jqnNboT4MNdPFg "explain to anyone"),  **without the help of Google**:
