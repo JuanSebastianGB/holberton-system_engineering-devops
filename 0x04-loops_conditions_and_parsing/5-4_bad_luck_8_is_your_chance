@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Bash script that loops from 1 to 10
+
+NUMBER=0
+while [ "${NUMBER}" -le 9 ]
+do
+    ((NUMBER++))
+    if [ "${NUMBER}" -eq 4 ]
+    then
+        echo "bad luck"
+        continue
+    fi
+    if [ "${NUMBER}" -eq 8 ]
+    then
+        echo "good luck"
+        continue
+    fi
+        echo "Best School"
+
+done
