@@ -7,8 +7,8 @@
 NUMBER=1
 while [ "${NUMBER}" != 21 ]
 do
+        echo "${NUMBER}"
     case "${NUMBER}" in 
-
     5)
         echo "bad luck from China"
         ;;
@@ -19,8 +19,7 @@ do
         echo "bad luck from Italy"
         ;;
     *)
-        echo "${NUMBER}"
         ;;
     esac
-    NUMBER=$((NUMBER+1))
+    (( NUMBER++ ))
 done
