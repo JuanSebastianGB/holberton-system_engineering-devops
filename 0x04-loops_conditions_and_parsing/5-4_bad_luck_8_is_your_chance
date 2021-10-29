@@ -8,13 +8,11 @@ do
     if [ "${NUMBER}" -eq 4 ]
     then
         echo "bad luck"
-        continue
-    fi
-    if [ "${NUMBER}" -eq 8 ]
+    elif [ "${NUMBER}" -eq 8 ]
     then
         echo "good luck"
-        continue
-    fi
+    else
         echo "Best School"
+    fi
 
 done
