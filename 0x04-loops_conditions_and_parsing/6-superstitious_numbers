@@ -9,13 +9,13 @@ while [ "${NUMBER}" != 21 ]
 do
         echo "${NUMBER}"
     case "${NUMBER}" in 
-    5)
+    "4")
         echo "bad luck from China"
         ;;
-    10)
+    "9")
         echo "bad luck from Japan"
         ;;
-    18)
+    "17")
         echo "bad luck from Italy"
         ;;
     *)
