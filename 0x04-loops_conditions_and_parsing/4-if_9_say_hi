@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-# This script is displaying "Best School" 10 times, and in 9 prints hy
+# This script is displaying "Best School" 10 times, and in 9 prints hi
 
 NUMBER=1
-while [ "${NUMBER}" -le 10 ]
+while [ "${NUMBER}" -le 9 ]
 do
     NUMBER=$((NUMBER + 1))
-    if [ "${NUMBER}" -eq 10 ]
+        echo "Best School"
+    if [ "${NUMBER}" -eq 9 ]
     then
         echo "Hi"
-        continue
     fi
-        echo "Best School"
 done
 
