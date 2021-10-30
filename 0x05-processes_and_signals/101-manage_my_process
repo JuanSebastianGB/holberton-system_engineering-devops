@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # implementing the script 101-manage_my_process that manages the manage_my_process by using inputs start, restart and stop
 
-case "${1}" in
+case "$1" in
 "start")
     ./manage_my_process &
     echo $$ > /var/run/my_process.pid
