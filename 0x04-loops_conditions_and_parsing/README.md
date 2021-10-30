@@ -649,7 +649,6 @@ sylvain@ubuntu$
 
 ### 12. Tell the story of passwd
 
-#advanced
 
 
 ![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2020/9/03ca27392c6338e696fc0c3b08765f02c98457a1.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20211030%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211030T171510Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=05ef9831cbe312068668f61bc9511a9eb29162d41a521e7701b71ea28da8bf50)
@@ -712,8 +711,6 @@ sylvain@ubuntu$
 
 
 ### 13. Let's parse Apache logs
-
-#advanced
 
 
 ![](https://intranet.hbtn.io/images/contents/sysadmin/projects/80/such_awk.jpg)
