@@ -425,4 +425,259 @@ I started  `7-highlander`  in Terminal #0 and then run  `8-beheaded_process`  in
 -   File:  `8-beheaded_process`
 
 
+### 9. Process and PID file
+
+
+Write a Bash script that:
+
+-   Creates the file  `/var/run/myscript.pid`  containing its PID
+-   Displays  `To infinity and beyond`  indefinitely
+-   Displays  `I hate the kill command`  when receiving a SIGTERM signal
+-   Displays  `Y U no love me?!`  when receiving a SIGINT signal
+-   Deletes the file  `/var/run/my.pid`  and terminates itself when receiving a SIGQUIT or SIGTERM signal
+
+![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2020/9/d8ecfe9109334898b9540ffd20cf64d1c06f0c09.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20211030%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211030T021041Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3c61b9509efb8c03d177bc434da793469063d43fe9b83122bde280f9f55c44b5)
+
+```
+sylvain@ubuntu$ sudo ./100-process_and_pid_file
+To infinity and beyond
+To infinity and beyond
+^CY U no love me?!
+
+```
+
+Executing the  `100-process_and_pid_file`  script and killing it with  `ctrl+c`.
+
+Terminal #0
+
+```
+sylvain@ubuntu$ sudo ./100-process_and_pid_file
+To infinity and beyond
+To infinity and beyond
+To infinity and beyond
+To infinity and beyond
+To infinity and beyond
+To infinity and beyond
+To infinity and beyond
+To infinity and beyond
+To infinity and beyond
+To infinity and beyond
+To infinity and beyond
+I hate the kill command
+sylvain@ubuntu$ 
+
+```
+
+Terminal #1
+
+```
+sylvain@ubuntu$ sudo pkill -f 100-process_and_pid_file
+sylvain@ubuntu$ 
+
+```
+
+Starting  `100-process_and_pid_file`  in the terminal #0 and then killing it in the terminal #1.
+
+**Repo:**
+
+-   GitHub repository:  `holberton-system_engineering-devops`
+-   Directory:  `0x05-processes_and_signals`
+-   File:  `100-process_and_pid_file`
+
+
+### 10. Manage my process
+
+
+![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2020/9/37975393ead381f4d27f268f7337c6d3013b4991.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20211030%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211030T021041Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=a57f69374c8db23e0eaa5655501f5278383979daaa67e8f68131df42d881a828)
+
+Read:
+
+-   [&](https://intranet.hbtn.io/rltoken/ISCvYLlssHBRk3117QINuw "&")
+-   [init.d](https://intranet.hbtn.io/rltoken/YhzaWR9jdFi2W0d0qrNJ3w "init.d")
+-   [Daemon](https://intranet.hbtn.io/rltoken/mNOdP_7ieM7KQaNHh504NA "Daemon")
+-   [Positional parameters](https://intranet.hbtn.io/rltoken/YPgjXhBUEDN1yh1rkQOe1w "Positional parameters")
+
+man:  `sudo`
+
+Programs that are detached from the terminal and running in the background are called daemons or processes, need to be managed. The general minimum set of instructions is:  `start`,  `restart`  and  `stop`. The most popular way of doing so on Unix system is to use the init scripts.
+
+Write a  `manage_my_process`  Bash script that:
+
+-   Indefinitely writes  `I am alive!`  to the file  `/tmp/my_process`
+-   In between every  `I am alive!`  message, the program should pause for 2 seconds
+
+Write Bash (init) script  `101-manage_my_process`  that manages  `manage_my_process`. (both files need to be pushed to git)
+
+Requirements:
+
+-   When passing the argument  `start`:
+    -   Starts  `manage_my_process`
+    -   Creates a file containing its PID in  `/var/run/my_process.pid`
+    -   Displays  `manage_my_process started`
+-   When passing the argument  `stop`:
+    -   Stops  `manage_my_process`  
+        
+    -   Deletes the file  `/var/run/my_process.pid`
+    -   Displays  `manage_my_process stopped`
+-   When passing the argument  `restart`
+    -   Stops  `manage_my_process`  
+        
+    -   Deletes the file  `/var/run/my_process.pid`
+    -   Starts  `manage_my_process`
+    -   Creates a file containing its PID in  `/var/run/my_process.pid`
+    -   Displays  `manage_my_process restarted`
+-   Displays  `Usage: manage_my_process {start|stop|restart}`  if any other argument or no argument is passed
+
+Note that this init script is far from being perfect (but good enough for the sake of manipulating process and PID file), for example we do not handle the case where we check if a process is already running when doing  `./101-manage_my_process start`, in our case it will simply create a new process instead of saying that it is already started.
+
+```
+sylvain@ubuntu$ sudo ./101-manage_my_process
+Usage: manage_my_process {start|stop|restart}
+sylvain@ubuntu$ sudo ./101-manage_my_process start
+manage_my_process started
+sylvain@ubuntu$ tail -f -n0 /tmp/my_process 
+I am alive!
+I am alive!
+I am alive!
+I am alive!
+^C
+sylvain@ubuntu$ sudo ./101-manage_my_process stop
+manage_my_process stopped
+sylvain@ubuntu$ cat /var/run/my_process.pid 
+cat: /var/run/my_process.pid: No such file or directory
+sylvain@ubuntu$ tail -f -n0 /tmp/my_process 
+^C
+sylvain@ubuntu$ sudo ./101-manage_my_process start
+manage_my_process started
+sylvain@ubuntu$ cat /var/run/my_process.pid 
+11864
+sylvain@ubuntu$ sudo ./101-manage_my_process restart
+manage_my_process restarted
+sylvain@ubuntu$ cat /var/run/my_process.pid 
+11918
+sylvain@ubuntu$ tail -f -n0 /tmp/my_process 
+I am alive!
+I am alive!
+I am alive!
+^C
+sylvain@ubuntu$ 
+
+```
+
+**Repo:**
+
+-   GitHub repository:  `holberton-system_engineering-devops`
+-   Directory:  `0x05-processes_and_signals`
+-   File:  `101-manage_my_process, manage_my_process`
+
+
+
+### 11. Zombie
+
+
+
+[![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/255/C6mO7b3.jpg)](http://fineartamerica.com/featured/zombie-seahorse-lauren-b.html)
+
+Read  [what a zombie process is](https://intranet.hbtn.io/rltoken/lD64_7WBTGbjxM9IJ5ncdg "what a zombie process is").
+
+Write a C program that creates 5 zombie processes.
+
+Requirements:
+
+-   For every zombie process created, it displays  `Zombie process created, PID: ZOMBIE_PID`
+-   Your code should use the Betty style. It will be checked using  `betty-style.pl`  and  `betty-doc.pl`
+-   When your code is done creating the parent process and the zombies, use the function bellow
+
+```
+int infinite_while(void)
+{
+    while (1)
+    {
+        sleep(1);
+    }
+    return (0);
+}
+
+```
+
+Example:
+
+Terminal #0
+
+```
+sylvain@ubuntu$ gcc 102-zombie.c -o zombie
+sylvain@ubuntu$ ./zombie 
+Zombie process created, PID: 13527
+Zombie process created, PID: 13528
+Zombie process created, PID: 13529
+Zombie process created, PID: 13530
+Zombie process created, PID: 13531
+^C
+sylvain@ubuntu$
+
+```
+
+Terminal #1
+
+```
+sylvain@ubuntu$ ps aux | grep -e 'Z+.*<defunct>'
+sylvain  13527  0.0  0.0      0     0 pts/0    Z+   01:19   0:00 [zombie] <defunct>
+sylvain  13528  0.0  0.0      0     0 pts/0    Z+   01:19   0:00 [zombie] <defunct>
+sylvain  13529  0.0  0.0      0     0 pts/0    Z+   01:19   0:00 [zombie] <defunct>
+sylvain  13530  0.0  0.0      0     0 pts/0    Z+   01:19   0:00 [zombie] <defunct>
+sylvain  13531  0.0  0.0      0     0 pts/0    Z+   01:19   0:00 [zombie] <defunct>
+sylvain  13533  0.0  0.1  10460   964 pts/2    S+   01:19   0:00 grep --color=auto -e Z+.*<defunct>
+sylvain@ubuntu$ 
+
+```
+
+In Terminal #0, I start by compiling  `102-zombie.c`  and executing  `zombie`  which creates 5 zombie processes. In Terminal #1, I display the list of processes and look for lines containing  `Z+.*<defunct>`  which catches zombie process.
+
+**Repo:**
+
+-   GitHub repository:  `holberton-system_engineering-devops`
+-   Directory:  `0x05-processes_and_signals`
+-   File:  `102-zombie.c`
+
+
+### 12. Screencast
+
+
+
+Now that you have mastered signals, how about sharing your knowledge?
+
+Create a screencast where you live-code/demo something related to Unix signals.
+
+Requirements:
+
+-   Step by step video
+-   Two minutes of above
+-   Done in English
+-   Published to Youtube
+
+While you are free to choose the recording system to record the screencast, I highly recommend  [screencast-o-matic](https://intranet.hbtn.io/rltoken/izYNM_2BzVVoGOJTTK7f_g "screencast-o-matic").
+
+Once you are done, please share the Youtube URL in your answer file and below.
+
+We’ll be watching you!
+
+![](https://media.giphy.com/media/l0MYEI1kqBRBrpEdO/giphy.gif)
+
+Depending on what you do, we could even get your video published in a technical publication, reach out to me if you are interested.
+
+Please, remember that these blogs must be recorded in English to further your technical ability in a variety of settings.
+
+**It is your responsibility to request a review for your video from a peer before the project’s deadline. If no peers have been reviewed, you should request a review from a TA or staff member.**
+
+#### Add URLs here:
+
+**Repo:**
+
+-   GitHub repository:  `holberton-system_engineering-devops`
+-   Directory:  `0x05-processes_and_signals`
+-   File:  `103-screencast_unix_signal`
+
+
+
+
 Copyright © 2021 Holberton Inc, All rights reserved.
