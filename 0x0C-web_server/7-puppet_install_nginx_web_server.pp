@@ -1,17 +1,20 @@
 # install and configure an Nginx server
+
 package { 'nginx':
-ensure   => installed
+  ensure   => 'installed',
 }
-file {'/var/www/html/index.html':
-content => 'Hello World'
+
+file { '/var/www/html/index.html':
+  content => 'Hello World!',
 }
+
 file_line { 'Adding 301 redirection into the config':
-ensure => 'present'
-path   => '/etc/nginx/sites-available/default',
-after  => 'listen 80 default_server',
-line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+  path  => '/etc/nginx/sites-available/default',
+  after => 'listen 80 default_server',
+  line  => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
 }
-service {'nginx':
-ensure  => running,
-require => Package['nginx'],
+
+service { 'nginx':
+  ensure  => 'running',
+  require => Package['nginx'],
 }
