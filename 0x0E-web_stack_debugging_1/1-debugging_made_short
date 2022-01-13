@@ -3,3 +3,4 @@
 
 ln -fs /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx restart
+rm /run/nginx.pid
