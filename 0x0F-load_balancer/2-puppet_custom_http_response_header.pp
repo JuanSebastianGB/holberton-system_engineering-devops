@@ -1,5 +1,7 @@
 # automate the task of creating a custom HTTP header response, but with Puppet.
 
+$custom_header = "add_header X-Served-By ${hostname};"
+
 exec { 'update':
     command => 'usr/bin/apt-get update',
 }
@@ -10,7 +12,7 @@ exec { 'update':
 
 -> file_line { 'adding header':
     ensure => 'present',
-    line   => "add_header X-Served-By ${hostname};",
+    line   => $custom_header,
     path   => '/etc/nginx/sites-available/default',
     after  => 'listen 80 default_server;',
 }
