@@ -1,4 +1,5 @@
 # automate the task of creating a custom HTTP header response, but with Puppet.
+include stdlib
 
 exec { 'update':
     command => 'usr/bin/env apt-get -y update',
