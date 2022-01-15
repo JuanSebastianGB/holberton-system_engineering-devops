@@ -3,21 +3,22 @@
 exec { 'update':
     command => 'usr/bin/env apt-get -y update',
 }
-package {
-    'nginx':
-    ensure => installed,
+-> package {'nginx':
+    ensure  => installed,
+    require => Exec['update']
 }
-file { '/var/www/html/index.html':
+-> file { '/var/www/html/index.html':
     content => 'Hello World!'
 }
 
 file_line { 'adding header':
-    line  => '\tadd_header X-Served-By $HOSTNAME;',
-    path  => '/etc/nginx/sites-available/default',
-    after => 'listen 80 default_server;',
+    ensure => 'present',
+    line   => "add_header X-Served-By ${hostname};"
+    path   => '/etc/nginx/sites-available/default',
+    after  => 'listen 80 default_server;',
 }
 
-service { 'nginx':
+-> service { 'nginx':
     ensure  => running,
     require => Package['nginx'],
 }
