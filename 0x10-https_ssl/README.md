@@ -106,6 +106,11 @@ Inside The file must be added:
 @weekly certbot renew --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx" --renew-hook "systemctl reload nginx" --quiet 
 ```
 
+## Checking loadbalancer config error
+```bash
+haproxy -f /etc/haproxy/haproxy.cfg -db
+```
+
 ## Tasks
 
 ### 0. World wide web
