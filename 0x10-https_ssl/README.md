@@ -93,6 +93,18 @@ running
 
 Actions  Toggle Dropdown
 
+
+## Running Crontab weekly to update ssl
+
+```bash
+sudo crontab -e
+```
+
+```c
+Inside The file must be added:
+@weekly certbot renew --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx" --renew-hook "systemctl reload nginx" --quiet 
+```
+
 ## Tasks
 
 ### 0. World wide web
