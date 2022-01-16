@@ -25,7 +25,8 @@ _For this project, students are expected to look at these concepts:_
 -   [HAProxy SSL termination on Ubuntu16.04](https://intranet.hbtn.io/rltoken/UkbvWfKF6ZAY_CUvlM32lA "HAProxy SSL termination on Ubuntu16.04")
 -   [SSL termination](https://intranet.hbtn.io/rltoken/VFq2MQ9qHXw2Nb11tnWF6Q "SSL termination")
 -   [Bash function](https://intranet.hbtn.io/rltoken/16bxrQvaOSIywA_fHEdsiA "Bash function")
--   [Managing ssl](https://linuxiac.com/lets-encrypt-free-ssl-certificate "Bash function")
+-   [Managing ssl](https://linuxiac.com/lets-encrypt-free-ssl-certificate "Managing ssl")
+-   [Integrating ssl with haproxy](https://www.digitalocean.com/community/tutorials/how-to-secure-haproxy-with-let-s-encrypt-on-ubuntu-14-04 "Integrating ssl with haproxy")
 
 **man or help**:
 
