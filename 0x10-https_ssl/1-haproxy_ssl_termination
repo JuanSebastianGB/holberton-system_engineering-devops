@@ -35,7 +35,7 @@ defaults
 
 frontend http
     bind *:80
-    bind *:43 ssl crt /etc/ssl/certs/www.juangonzagb.tech.pem
+    bind *:443 ssl crt /etc/ssl/certs/www.juangonzagb.tech.pem
     http-request redirect scheme https unless { ssl_fc }
     mode http
     default_backend web-backend
