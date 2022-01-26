@@ -22,6 +22,7 @@ _For this project, students are expected to look at these concepts:_
 
 -   `mysqldump`
 
+
 ## Learning Objectives
 
 At the end of this project, you are expected to be able to  [explain to anyone](https://intranet.hbtn.io/rltoken/gtB6BnzWAVMbA_2QuhPTPg "explain to anyone"),  **without the help of Google**:
@@ -46,6 +47,11 @@ At the end of this project, you are expected to be able to  [explain to anyone](
 -   Your Bash script must pass  `Shellcheck`  (version  `0.3.7-5~ubuntu16.04.1`  via  `apt-get`) without any error
 -   The first line of all your Bash scripts should be exactly  `#!/usr/bin/env bash`
 -   The second line of all your Bash scripts should be a comment explaining what is the script doing
+
+
+### Aditional ref
+
+- [How to install](https://www.fosstechnix.com/how-to-install-mysql-5-7-on-ubuntu-20-04-lts/"Installing")
 
 ## Your servers
 
