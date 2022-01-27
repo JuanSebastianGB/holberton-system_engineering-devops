@@ -17,6 +17,7 @@ _For this project, students are expected to look at these concepts:_
 -   [What is a primary-replica cluster](https://intranet.hbtn.io/rltoken/yI-YnEyAx2mO5qqmbrCTbw "What is a primary-replica cluster")
 -   [MySQL primary replica setup](https://intranet.hbtn.io/rltoken/8gHVXwXr_dBfrpoTdUrB5A "MySQL primary replica setup")
 -   [Build a robust database backup strategy](https://intranet.hbtn.io/rltoken/1-NePAaPn2_J-t4kZi2fmw "Build a robust database backup strategy")
+-   [Creating replica v 5.7](https://dev.mysql.com/doc/refman/5.7/en/replication-setup-replicas.html/"Replica")
 
 **man or help**:
 
