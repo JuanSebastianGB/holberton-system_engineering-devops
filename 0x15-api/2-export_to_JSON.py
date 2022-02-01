@@ -16,7 +16,7 @@ if __name__ == '__main__':
                 for task in todos if task.get('completed')]
     with open("{}.json".format(sys.argv[1]), "w") as jsonfile:
         json.dump({sys.argv[1]: [{
-            "task": todo.get("title"),
-            "completed": todo.get("completed"),
+            "task": todo['title'],
+            "completed": todo['completed'],
             "username": user['username']
         } for todo in todos]}, jsonfile)
