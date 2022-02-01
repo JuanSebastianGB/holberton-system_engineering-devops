@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """ Calling to an api and etting todos task of an specific user """
-import sys
 import requests
+import sys
 
 if __name__ == '__main__':
     user = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.format(sys.argv[1]),
         verify=False).json()
     todos = requests.get(
-        'https://jsonplaceholder.typicode.com/todos?userID={}'.format(
+        'https://jsonplaceholder.typicode.com/todos?userId={}'.format(
             sys.argv[1]),
         verify=False).json()
 
