@@ -8,7 +8,7 @@ def recurse(subreddit, hot_list=[], count=0, _next=''):
     of all hot articles for a given subreddit """
     agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0)'
     agent += ' Gecko/20100101 Firefox/47.0'
-    url = 'https://www.reddit.com/r/{}/hot/.json?limit=500&count={}&after={}'\
+    url = 'https://www.reddit.com/r/{}/hot/.json?limit=500&count={}&_next={}'\
         .format(
             subreddit, count, _next)
     headers = {"user-Agent": agent}
