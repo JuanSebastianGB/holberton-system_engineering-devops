@@ -7,6 +7,8 @@ def count_words(subreddit, word_list, after='', dictionary={}):
     """ prints a sorted count of given keywords
     (case-insensitive, delimited by spaces """
 
+    word_list = list(set(word_list))
+
     agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0)'
     agent += ' Gecko/20100101 Firefox/47.0'
     url = 'https://www.reddit.com/r/{}/hot/.json?after={}'\
