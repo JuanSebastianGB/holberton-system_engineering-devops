@@ -31,7 +31,8 @@ def count_words(subreddit, word_list, after='', dictionary={}):
         return
     dictionary = dict(
         sorted(dictionary.items(), key=lambda _k: (-_k[1], _k[0])))
-    [print('{}: {}'.format(key, value)) for key, value in dictionary.items()]
+    [print('{}: {}'.format(key, value))
+     for key, value in dictionary.items() if value != 0]
 
 
 def processWords(title, word_list, dictionary):
