@@ -7,7 +7,7 @@ def count_words(subreddit, word_list, after='', dictionary={}):
     """ prints a sorted count of given keywords
     (case-insensitive, delimited by spaces """
 
-    word_list = list(set(word_list))
+    word_list = list(dict.fromkeys(word_list))
 
     agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0)'
     agent += ' Gecko/20100101 Firefox/47.0'
@@ -17,19 +17,22 @@ def count_words(subreddit, word_list, after='', dictionary={}):
     headers = {"user-Agent": agent}
     response = requests.get(
         url, headers=headers, allow_redirects=False)
-    if response.status_code != 200:
-        return None
-    results = response.json().get('data')
+    try:
+        results = response.json()
+        if response.status_code != 200:
+            raise Exception
+    except Exception:
+        return
+    results = results.get('data')
     after = results.get('after')
     children = results.get('children')
     for result in children:
-        title = result['data']['title'].lower().split()
-        processWords(title, word_list, dictionary)
+        titleSplited = result['data']['title'].lower().split()
+        processWords(titleSplited, word_list, dictionary)
 
     if after:
         return count_words(subreddit, word_list, after, dictionary)
     if len(dictionary) == 0:
-        print('')
         return
     dictionary = dict(
         sorted(dictionary.items(), key=lambda _k: (-_k[1], _k[0])))
@@ -37,10 +40,13 @@ def count_words(subreddit, word_list, after='', dictionary={}):
      for key, value in dictionary.items() if value != 0]
 
 
-def processWords(title, word_list, dictionary):
+def processWords(titleSplited, word_list, dictionary):
     """ Processing words to save the count in the dictionary """
-    for word in word_list:
-        numberOfMatches = len(list(filter(lambda x: x == word.lower(), title)))
+    lowerWordList = list(map(lambda x: x.lower(), word_list[:]))
+    lowerTitleSplited = list(map(lambda x: x.lower(), titleSplited[:]))
+    for word in lowerWordList:
+        numberOfMatches = len(
+            list(filter(lambda x: x == word.lower(), lowerTitleSplited)))
 
         if word not in dictionary.keys():
             dictionary[word] = numberOfMatches
